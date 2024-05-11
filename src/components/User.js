@@ -1,10 +1,17 @@
-import React from "react";
+import React from 'react';
+import logo from '../img/logo.png';
 
 function User() {
 
     return (
-        <div className="User">
-            User
+        <div className='User'>
+            <div className="logo">
+                <img src={logo} alt="logo" />
+            </div>
+            <div className='info'>
+                <p>ToDo App</p>
+                <a href="#">Logout!</a>
+            </div>
         </div>
 
     )

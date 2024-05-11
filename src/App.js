@@ -1,5 +1,5 @@
 import './App.css';
-import Header from './components/Header';
+import Sidebar from './components/Sidebar';
 import Main from './components/Main';
 import User from './components/User';
 import AddNewToDo from './components/AddNewToDo';
@@ -10,13 +10,13 @@ import Calendar from './components/Calendar';
 
 function App() {
   return (
-    <div className='App'>
-      <Header>
+    <div className="App">
+      <Sidebar>
         <User />
         <AddNewToDo />
         <Calendar />
         <Projects />
-      </Header>
+      </Sidebar>
 
       <Main>
         <Todos />
