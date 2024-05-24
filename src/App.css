@@ -22,9 +22,12 @@
 }
 
 .Main {
-    background-color: #fddff1;
     width: 100%;
     height: 100%;
+    border-left: 1px solid #994174;
+    background-image: url(./img/back.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .User {
@@ -32,14 +35,14 @@
     align-items: center;
     justify-content: space-around;
     padding: 1rem;
-    border: 1px solid #86469C;
-    background-color: #fddff1;
+    border: 1px solid #994174;
+    background-color: #0878A4;
 }
 
 .User .logo img{
     width: 50px;
     border-radius: 50%;
-    border: 3px solid #86469C;
+    border: 3px solid #994174;
 }
 
 .User .info p {
@@ -51,5 +54,48 @@
     text-decoration: none;
     display: flex;
     justify-content: flex-end;
-    color: #FB9AD1;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.modal .container {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -25%);
+    background: white;
+}
+
+.addNewToDo {
+    border-bottom: 1px solid #994174;
+}
+
+.addNewToDo .btn {
+    padding: 1rem;
+    width: 100%;
+    height: 70px;
+}
+
+.addNewToDo .btn button {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 3px;
+    font-size: 1rem;
+    background-color: #0878A4;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.addNewToDo .btn button:hover {
+    filter: brightness(1.1);
+    transition: all 300ms ease;
 }
