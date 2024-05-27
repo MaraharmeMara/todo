@@ -3,7 +3,7 @@ import React from 'react';
 function RenameProject() {
 
     return (
-        <div className='RenameProject'>
+        <div className='renameProject'>
             RenameProject
         </div>
 

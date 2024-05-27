@@ -3,7 +3,7 @@ import React from 'react';
 function EditTodo() {
 
     return (
-        <div className='EditTodo'>
+        <div className='editTodo'>
             EditTodo
         </div>
 

@@ -1,11 +1,10 @@
 import React from 'react';
-import RenameProject from './RenameProject';
 import { Pencil, XCircle } from 'react-bootstrap-icons';
 
 function Project({project, edit}) {
 
     return (
-        <div className='Project'>
+        <div className='project'>
             <div className='name'>
                 {project.name}
             </div>
