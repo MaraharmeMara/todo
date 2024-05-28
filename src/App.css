@@ -28,6 +28,7 @@
     background-image: url(./img/back.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    position: relative;
 }
 
 .user {
@@ -340,11 +341,11 @@
 }
 
 .project .btns .edit-delete span.edit:hover {
-    background: #acffac;
+    background: #608b60;
 }
 
 .project .btns .edit-delete span.delete:hover {
-    background: #ffb5b5;
+    background: #a15a5a;
 }
 
 .addNewProject .add-button span {
@@ -397,4 +398,74 @@
 
 .projectForm button:hover {
     filter: brightness(1.1);
+}
+
+.todos {
+    width: 450px;
+    height: 80%;
+    background-color: white;
+
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+
+    border-radius: 4px;
+    opacity: 0.9;
+
+    padding: 0 0.5rem 0.5rem 0.5rem;
+}
+
+.todos .selected-project {
+    margin: 1rem 0;
+    text-transform: capitalize;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #0878A4;
+}
+
+.todos .toDos {
+    overflow-y: auto;
+}
+
+.todo {
+    padding: 0.5rem 1rem;
+}
+
+.todo .todo-container {
+    display: flex;
+    align-items: center;
+}
+
+.todo .todo-container span {
+    cursor: pointer;
+}
+
+.todo .todo-container .text {
+    position: relative;
+    flex: 1;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.todo .todo-container .text span {
+    font-size: 0.8rem;
+    color: #bebebe;
+}
+
+.todo .todo-container .text .line {
+    height: 1px;
+    background: #bebebe;
+    position: absolute;
+    top: 25%;
+    width: 0;
+    transition: width 250ms ease-in-out;
+}
+
+.todo .todo-container .text .line .line-through {
+    width: 100%;
+}
+
+.todo .todo-container .add-to-next-day {
+    margin-right: 10px;
 }
