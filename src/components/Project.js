@@ -11,8 +11,9 @@ function Project({project, edit}) {
     const [showModal, setShowModal] = useState(false)
     return (
         <div className='project'>
-            <div className='name'
-                onClick={() => setSelectedProject(project.name)}
+            <div 
+                className='name'
+                onClick={ () => setSelectedProject(project.name)}
             >
                 {project.name}
             </div>
