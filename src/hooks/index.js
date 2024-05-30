@@ -16,11 +16,12 @@ export function useTodos(){
                     ...doc.data()
                 }
             })
+            console.log("WTF DATA", data)
             setTodos(data)
         })
 
         return () => unsubscribe()
-    })
+    }, [todos])
 
     return todos;
 }
@@ -29,6 +30,9 @@ export function useProjects(todos){
     const [projects, setProjects] = useState([])
 
     function calculateNumOfTodos(projectName, todos) {
+        if (todos === undefined){
+            return
+        }
         return todos.filter(todo => todo.projectName === projectName).length
     }
 
@@ -47,11 +51,13 @@ export function useProjects(todos){
                     numOfTodos : calculateNumOfTodos(projectName, todos)
                 }
             })
+            console.log("WTF 2 DATA", data)
+
             setProjects(data)
         })
 
         return () => unsubscribe()
-    })
+    }, [projects, todos])
 
     return projects;
 }

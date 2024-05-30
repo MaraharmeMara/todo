@@ -8,7 +8,7 @@ function TodoContextProvider({ children }) {
     const [selectedProject, setSelectedProject] = useState(defaultProject)
 
     const todos = useTodos()
-    const projects = useProjects()
+    const projects = useProjects(todos)
 
     return (
         <TodoContext.Provider
