@@ -2,6 +2,7 @@ import React from 'react';
 import { Bell, CalendarDay, Clock, Palette, X } from 'react-bootstrap-icons';
 import { DatePicker, TimePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
+import { colors } from '@mui/material';
 
 
 function TodoForm({
@@ -10,6 +11,7 @@ function TodoForm({
     text, setText,
     day, setDay,
     time, setTime,
+    todoProject, setTodoProject,
     projects,
     showButtons = false,
     setShowModal = false
@@ -17,18 +19,18 @@ function TodoForm({
 {
     return (
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
-            <form onSubmit={handleSubmit} className='todoForm'> 
+            <form onSubmit={handleSubmit} className='todoForm'>
                 <div className='text'>
                     {
-                        heading && 
+                        heading &&
                         <h3>{heading}</h3>
                     }
-                    <input 
+                    <input
                         type='text'
                         value={text}
                         onChange={e => setText(e.target.value)}
                         placeholder='Study'
-                        autoFocus 
+                        autoFocus
                     />
                 </div>
                 <div className='remind'>
@@ -40,7 +42,7 @@ function TodoForm({
                         <CalendarDay />
                         <p>Choose a day</p>
                     </div>
-                    <DatePicker 
+                    <DatePicker
                         value={day}
                         onChange={day => setDay(day)}
                     />
@@ -50,7 +52,7 @@ function TodoForm({
                         <Clock />
                         <p>Choose time</p>
                     </div>
-                    <TimePicker 
+                    <TimePicker
                         value={time}
                         onChange={time => setTime(time)}
                     />
@@ -61,17 +63,28 @@ function TodoForm({
                         <p>Choose a project</p>
                     </div>
                     <div className='projects'>
-                        {projects.map(project =>
-                            <div className='project' key={project.id}>
+                        {   projects.length > 0 ?
+                            projects.map(project =>
+                            <div
+                                className={`project ${todoProject === project.name ? "active" : ""}`}
+                                onClick={() => setTodoProject(project.name)}
+                                key={project.id}
+                            >
                                 {project.name}
                             </div>
-                        )}
+                        )
+                        :
+                        <div style={{color: '#ff0000'}}>
+                            Please add a project before proceeding
+                        </div>
+                        }
                     </div>
                 </div>
                 {
                     showButtons &&
                     <div>
-                        <div className='cancel' onClick={() => setShowModal(false)}>
+                        <div className='cancel'
+                            onClick={() => setShowModal(false)}>
                             <X size='40' />
                         </div>
                         <div className='confirm'>
@@ -81,6 +94,6 @@ function TodoForm({
                 }
             </form>
         </MuiPickersUtilsProvider>
-    )
-}
+    );
+};
 export default TodoForm;
