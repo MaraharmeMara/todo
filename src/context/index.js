@@ -8,7 +8,7 @@ function TodoContextProvider({ children }) {
     const [selectedProject, setSelectedProject] = useState(defaultProject)
 
     return (
-        <TodoContextProvider value={
+        <TodoContext.Provider value={
             {
                 selectedProject,
                 setSelectedProject
@@ -16,7 +16,7 @@ function TodoContextProvider({ children }) {
         }
         >
             {children}
-        </TodoContextProvider>
+        </TodoContext.Provider>
     )
 }
 
