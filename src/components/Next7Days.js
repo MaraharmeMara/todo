@@ -35,7 +35,7 @@ function Next7Days({ todos }) {
             </div>
             <div className="total-todos">({day.todos.length})</div>
           </div>
-          <div className="todos">
+          <div className="toDos">
             {day.todos.map((todo) => (
               <Todo key={todo.id} todo={todo} />
             ))}
