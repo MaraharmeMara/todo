@@ -69,7 +69,7 @@ useEffect(() => {
                     setTodoProject={setTodoProject}
                     projects={projects}
                     showButtons={true}
-                    showModal={showModal}
+                    setShowModal={setShowModal}
                 />
             </Modal>
         </div>
