@@ -1,61 +1,59 @@
 import { useState, useEffect } from "react";
 import firebase from "../firebase";
 
+export function useTodos() {
+  const [todos, setTodos] = useState([]);
 
-export function useTodos(){
-    const [todos, setTodos] = useState([])
+  useEffect(() => {
+    let unsubscribe = firebase
+      .firestore()
+      .collection("todos")
+      .onSnapshot((snapshot) => {
+        const data = snapshot.docs.map((doc) => {
+          return {
+            id: doc.id,
+            ...doc.data(),
+          };
+        });
+        setTodos(data);
+      });
 
-    useEffect(() => {
-        let unsubscribe = firebase
-        .firestore()
-        .collection('todos')
-        .onSnapshot( snapshot => {
-            const data = snapshot.docs.map( doc => {
-                return {
-                    id : doc.id,
-                    ...doc.data()
-                }
-            })
-            setTodos(data)
-        })
+    return () => unsubscribe();
+  }, []);
 
-        return () => unsubscribe()
-    }, [])
-
-    return todos;
+  return todos;
 }
 
-export function useProjects(todos){
-    const [projects, setProjects] = useState([])
+export function useProjects(todos) {
+  const [projects, setProjects] = useState([]);
 
-    function calculateNumOfTodos(projectName, todos) {
-        if (todos === undefined){
-            return
-        }
-        return todos.filter(todo => todo.projectName === projectName).length
+  function calculateNumOfTodos(projectName, todos) {
+    if (todos === undefined) {
+      return;
     }
+    return todos.filter((todo) => todo.projectName === projectName).length;
+  }
 
-    useEffect(() => {
-        let unsubscribe = firebase
-        .firestore()
-        .collection('projects')
-        .onSnapshot( snapshot => {
-            const data = snapshot.docs.map( doc => {
+  useEffect(() => {
+    let unsubscribe = firebase
+      .firestore()
+      .collection("projects")
+      .onSnapshot((snapshot) => {
+        const data = snapshot.docs.map((doc) => {
+          const projectName = doc.data().name;
 
-                const projectName = doc.data().name
+          return {
+            id: doc.id,
+            name: projectName,
+            numOfTodos: calculateNumOfTodos(projectName, todos),
+          };
+        });
 
-                return {
-                    id : doc.id,
-                    name : projectName,
-                    numOfTodos : calculateNumOfTodos(projectName, todos)
-                }
-            })
+        setProjects(data);
+      });
 
-            setProjects(data)
-        })
+    return () => unsubscribe();
+  }, [todos]);
 
-        return () => unsubscribe()
-    }, [todos])
-
-    return projects;
+  return projects;
 }

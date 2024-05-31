@@ -1,28 +1,22 @@
-import React, { useContext } from 'react';
-import Todo from './Todo';
-import Next7Days from './Next7Days';
-import { TodoContext } from '../context';
+import React, { useContext } from "react";
+import Todo from "./Todo";
+import Next7Days from "./Next7Days";
+import { TodoContext } from "../context";
 
 function Todos() {
-    const { todos, selectedProject } = useContext(TodoContext)
+  const { todos, selectedProject } = useContext(TodoContext);
 
-    return (
-        <div className='todos'>
-            <div className='selected-project'>
-                {selectedProject}
-            </div>
-            <div className='toDos'>
-                {
-                    selectedProject === "next 7 days" ?
-                    <Next7Days todos={todos} />
-                    :
-                    todos.map( todo =>
-                        <Todo todo={todo} key={todo.id} />
-                    )
-                }
-            </div>
-        </div>
-
-    )
+  return (
+    <div className="todos">
+      <div className="selected-project">{selectedProject}</div>
+      <div className="toDos">
+        {selectedProject === "next 7 days" ? (
+          <Next7Days todos={todos} />
+        ) : (
+          todos.map((todo) => <Todo todo={todo} key={todo.id} />)
+        )}
+      </div>
+    </div>
+  );
 }
 export default Todos;
