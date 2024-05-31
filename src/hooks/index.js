@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import firebase from "../firebase";
-import { Calculator } from "react-bootstrap-icons";
+
 
 export function useTodos(){
     const [todos, setTodos] = useState([])
@@ -16,12 +16,11 @@ export function useTodos(){
                     ...doc.data()
                 }
             })
-            console.log("WTF DATA", data)
             setTodos(data)
         })
 
         return () => unsubscribe()
-    }, [todos])
+    }, [])
 
     return todos;
 }
@@ -51,13 +50,12 @@ export function useProjects(todos){
                     numOfTodos : calculateNumOfTodos(projectName, todos)
                 }
             })
-            console.log("WTF 2 DATA", data)
 
             setProjects(data)
         })
 
         return () => unsubscribe()
-    }, [projects, todos])
+    }, [])
 
     return projects;
 }
