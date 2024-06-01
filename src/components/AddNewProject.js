@@ -14,15 +14,18 @@ function AddNewProject() {
     if (projectName) {
       const projectsRef = firebase.firestore().collection("projects");
 
-      projectsRef.where("name", "==", projectName).get.then((querySnapshot) => {
-        if (querySnapshot.empty) {
-          projectsRef.add({
-            name: projectName,
-          });
-        } else {
-          alert("Project already exists");
-        }
-      });
+      projectsRef
+        .where("name", "==", projectName)
+        .get()
+        .then((querySnapshot) => {
+          if (querySnapshot.empty) {
+            projectsRef.add({
+              name: projectName,
+            });
+          } else {
+            alert("Project already exists");
+          }
+        });
 
       setShowModal(false);
       setProjectName("");

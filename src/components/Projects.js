@@ -5,7 +5,7 @@ import { CaretUp, Palette, PencilFill } from "react-bootstrap-icons";
 import { TodoContext } from "../context";
 
 function Projects() {
-  const [showMenu, setShowMenu] = useState(true);
+  const [showMenu] = useState(true);
   const [edit, setEdit] = useState(false);
   const pencilColor = edit ? "#1EC94C" : "#000000";
 

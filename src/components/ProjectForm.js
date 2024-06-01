@@ -18,11 +18,7 @@ function ProjectForm({
         placeholder="Project Name"
         autoFocus
       />
-      <button
-        className="cancel"
-        role="button"
-        onClick={() => setShowModal(false)}
-      >
+      <button className="cancel" onClick={() => setShowModal(false)}>
         cancel
       </button>
       <button className="confirm">{confirmButtonText}</button>
