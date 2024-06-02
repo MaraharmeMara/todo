@@ -1,5 +1,5 @@
 import moment from "moment";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   ArrowClockwise,
   CheckCircleFill,
@@ -7,9 +7,19 @@ import {
   Trash,
 } from "react-bootstrap-icons";
 import firebase from "../firebase";
+import { TodoContext } from "../context";
 
 function Todo({ todo }) {
   const [hover, setHover] = useState(false);
+
+  const { selectedTodo, setSelectedTodo } = useContext(TodoContext);
+  const handleDelete = (todo) => {
+    deleteTodo(todo);
+
+    if (selectedTodo === todo) {
+      setSelectedTodo(undefined);
+    }
+  };
 
   const deleteTodo = (todo) => {
     firebase.firestore().collection("todos").doc(todo.id).delete();
@@ -54,7 +64,7 @@ function Todo({ todo }) {
             </span>
           )}
         </div>
-        <div className="text">
+        <div className="text" onClick={() => setSelectedTodo(todo)}>
           <p style={{ color: todo.checked ? "#bebebe" : "#000000" }}>
             {todo.text}
           </p>
@@ -70,7 +80,7 @@ function Todo({ todo }) {
             </span>
           )}
         </div>
-        <div className="delete-todo" onClick={() => deleteTodo(todo)}>
+        <div className="delete-todo" onClick={() => handleDelete(todo)}>
           {(hover || todo.checked) && (
             <span>
               <Trash />

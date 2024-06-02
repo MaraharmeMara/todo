@@ -461,7 +461,7 @@
   transition: width 250ms ease-in-out;
 }
 
-.todo .todo-container .text .line .line-through {
+.todo .todo-container .text .line-through {
   width: 100%;
 }
 
