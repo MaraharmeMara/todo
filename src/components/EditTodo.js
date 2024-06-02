@@ -35,7 +35,7 @@ function EditTodo() {
           projectName: todoProject,
         });
     }
-  }, [text, day, time, todoProject]);
+  }, [text, day, time, todoProject, selectedTodo]);
 
   function handleSubmit(e) {}
 
