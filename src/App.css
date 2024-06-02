@@ -228,6 +228,10 @@
 .calendar .header .btns span:hover {
   background-color: #0878a4;
   transition: all 300ms ease-in-out;
+  -webkit-transition: all 300ms ease-in-out;
+  -moz-transition: all 300ms ease-in-out;
+  -ms-transition: all 300ms ease-in-out;
+  -o-transition: all 300ms ease-in-out;
 }
 
 .calendar .items {
@@ -283,7 +287,11 @@
 
 .projects .header .btns span:hover {
   background-color: #0878a4;
-  transition: all 300ms ease-in-out;
+  transition: background 300ms ease-in-out;
+  -webkit-transition: background 300ms ease-in-out;
+  -moz-transition: background 300ms ease-in-out;
+  -ms-transition: background 300ms ease-in-out;
+  -o-transition: background 300ms ease-in-out;
 }
 
 .projects .items {
@@ -429,6 +437,14 @@
 
 .todo {
   padding: 0.5rem 1rem;
+}
+
+.todo .todo-container .check-todo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 15px;
 }
 
 .todo .todo-container {
