@@ -1,5 +1,8 @@
 import React from "react";
 import logo from "../img/logo.png";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import SignIn from "../Signin/SignIn";
+import SignUp from "../Signin/SignUp";
 
 function User() {
   return (
@@ -9,7 +12,12 @@ function User() {
       </div>
       <div className="info">
         <p>ToDo App</p>
-        <a href="#">Logout!</a>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<SignIn />} />
+            <Route path="/login" element={<SignUp />} />
+          </Routes>
+        </BrowserRouter>
       </div>
     </div>
   );
