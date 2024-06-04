@@ -3,10 +3,21 @@ import logo from "../img/logo.png";
 import Modal from "./Modal";
 
 import SignIn from "../Signin/SignIn";
+import SignUp from "../Signin/SignUp";
 
 function User() {
   const [showModal, setShowModal] = useState(false);
   const [signIn, setSignIn] = useState(false);
+  const [current, setCurrent] = useState(0);
+
+  function changeModal() {
+    if (current === 0) {
+      setCurrent(1);
+    } else {
+      setCurrent(0);
+    }
+  }
+
   return (
     <div className="user">
       <div className="logo">
@@ -18,7 +29,10 @@ function User() {
           Log In
         </button>
         <Modal showModal={showModal} setShowModal={setShowModal}>
-          <SignIn signIn={SignIn} />
+          {current === 0 && (
+            <SignIn signIn={SignIn} changeModal={changeModal} />
+          )}
+          {current === 1 && <SignUp visibili signUp={SignUp} />}
         </Modal>
       </div>
     </div>

@@ -3,7 +3,7 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import Modal from "../components/Modal";
 import SignUp from "./SignUp";
 
-const SignIn = () => {
+const SignIn = ({ changeModal }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showModal, setShowModal] = useState(false);
@@ -37,13 +37,13 @@ const SignIn = () => {
         <button type="submit" className="btn">
           Log in
         </button>
-        <a className="link" onClick={() => setShowModal(true)}>
-          Create Account
-        </a>
-        <Modal showModal={showModal} setShowModal={setShowModal}>
-          <SignUp signUp={SignUp} />
-        </Modal>
       </form>
+      <a className="link" onClick={changeModal}>
+        Create Account
+      </a>
+      <Modal showModal={showModal} setShowModal={setShowModal}>
+        <SignUp signUp={SignUp} />
+      </Modal>
     </div>
   );
 };
