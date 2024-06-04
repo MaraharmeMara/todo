@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import Modal from "../components/Modal";
 import SignUp from "./SignUp";
+import { auth } from "../firebase";
 
 const SignIn = ({ changeModal }) => {
   const [email, setEmail] = useState("");
@@ -10,7 +11,7 @@ const SignIn = ({ changeModal }) => {
 
   const signIn = (e) => {
     e.preventDefault();
-    signInWithEmailAndPassword(getAuth, email, password)
+    signInWithEmailAndPassword(auth, email, password)
       .then((userCredenial) => {
         console.log(userCredenial);
       })
