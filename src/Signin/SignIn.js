@@ -41,7 +41,7 @@ const SignIn = () => {
           Create Account
         </a>
         <Modal showModal={showModal} setShowModal={setShowModal}>
-          <SignUp signIn={SignUp} />
+          <SignUp signUp={SignUp} />
         </Modal>
       </form>
     </div>
