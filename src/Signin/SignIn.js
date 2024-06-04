@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { getAuth } from "firebase/auth";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import Modal from "../components/Modal";
+import SignUp from "./SignUp";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showModal, setShowModal] = useState(false);
 
   const signIn = (e) => {
     e.preventDefault();
@@ -32,11 +34,15 @@ const SignIn = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         ></input>
-        <a className="link">Forgot Password</a>
         <button type="submit" className="btn">
           Log in
         </button>
-        <a className="link">Create Account</a>
+        <a className="link" onClick={() => setShowModal(true)}>
+          Create Account
+        </a>
+        <Modal showModal={showModal} setShowModal={setShowModal}>
+          <SignUp signIn={SignUp} />
+        </Modal>
       </form>
     </div>
   );

@@ -565,6 +565,7 @@
   cursor: pointer;
   width: 100%;
   height: 30px;
+  margin-top: 20px;
 }
 
 .sign-in .btn button:hover {
@@ -577,6 +578,8 @@
   height: 30px;
   font-size: 1rem;
   padding: 0.5rem;
+  margin-top: 10px;
+
 }
 
 .sign-in h1 {
@@ -605,4 +608,40 @@
   -ms-border-radius: 4px;
   -o-border-radius: 4px;
   padding: 1.2rem;
+}
+
+.sign-up .btn {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 3px;
+  font-size: 1rem;
+  background-color: #0878a4;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  height: 30px;
+  margin-top: 20px;
+}
+
+.sign-up .btn button:hover {
+  filter: brightness(1.1);
+  transition: all 300ms ease;
+}
+
+.sign-up input {
+  width: 100%;
+  height: 30px;
+  font-size: 1rem;
+  padding: 0.5rem;
+  margin-top: 10px;
+
+}
+
+.sign-up h1 {
+  font-size: 1.2rem;
+  font-size: bold;
+  margin: 1rem;
 }
