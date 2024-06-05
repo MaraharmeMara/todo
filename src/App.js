@@ -7,14 +7,12 @@ import Todos from "./components/Todos";
 import Projects from "./components/Projects";
 import EditTodo from "./components/EditTodo";
 import Calendar from "./components/Calendar";
-import { EmailContextProvider } from "./context/LoginContext";
 
 function App() {
   return (
     <div className="App">
       <Sidebar>
         <User />
-        <EmailContextProvider />
         <AddNewToDo />
         <Calendar />
         <Projects />
