@@ -533,6 +533,7 @@
   color: white;
   font-weight: bold;
   cursor: pointer;
+  margin-top: 1rem;
 }
 
 .sign-in {
