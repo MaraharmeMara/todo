@@ -4,7 +4,7 @@ const EmailContext = createContext();
 
 function EmailContextProvider({ children }) {
   const defaultEmail = "";
-  const [changeUser, setChangeUser] = useState(email);
+  const [changeUser, setChangeUser] = useState(defaultEmail);
   return (
     <EmailContext.Provider
       value={{ defaultEmail, changeUser, setChangeUser }}
