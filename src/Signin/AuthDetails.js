@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 
-
 const AuthDetails = () => {
   const [authUser, setAuthUser] = useState(null);
-
 
   useEffect(() => {
     const listen = onAuthStateChanged(getAuth, (user) => {
@@ -20,10 +18,11 @@ const AuthDetails = () => {
   }, []);
 
   const userSignOut = () => {
-    signOut(getAuth).then(() => {
-      console.log("sign out successful");
-    });
-    .catch((error) => console.log(error));
+    signOut(getAuth)
+      .then(() => {
+        console.log("sign out successful");
+      })
+      .catch((error) => console.log(error));
   };
 
   return (
