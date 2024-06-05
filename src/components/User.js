@@ -33,6 +33,9 @@ function User() {
           </button>
         )}
         {changeUser !== "" && <span>Email: {changeUser}</span>}
+        <button className="log" onClick={() => setShowModal(true)}>
+          Log Out
+        </button>
 
         <Modal showModal={showModal} setShowModal={setShowModal}>
           {current === 0 && (
