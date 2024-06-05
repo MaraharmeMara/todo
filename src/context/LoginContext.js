@@ -6,9 +6,9 @@ function EmailContextProvider({ children }) {
   const defaultEmail = "";
   const [changeUser, setChangeUser] = useState(defaultEmail);
   return (
-    <EmailContext.Provider
-      value={{ defaultEmail, changeUser, setChangeUser }}
-    ></EmailContext.Provider>
+    <EmailContext.Provider value={{ defaultEmail, changeUser, setChangeUser }}>
+      {children}
+    </EmailContext.Provider>
   );
 }
 
