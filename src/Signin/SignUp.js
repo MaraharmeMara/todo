@@ -5,12 +5,11 @@ import { auth } from "../firebase";
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [userName, setUserName] = useState("");
 
   const signUp = (e) => {
     e.preventDefault();
 
-    createUserWithEmailAndPassword(auth, userName, email, password)
+    createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         console.log(userCredential);
       })
@@ -23,12 +22,6 @@ const SignUp = () => {
     <div className="sign-up">
       <form onSubmit={signUp}>
         <h1>Create Account</h1>
-        <input
-          type="text"
-          placeholder="Enter Your User name"
-          value={userName}
-          onChange={(e) => setUserName(e.target.value)}
-        ></input>
         <input
           type="email"
           placeholder="Enter Your Email"
