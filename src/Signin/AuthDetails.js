@@ -17,12 +17,13 @@ const AuthDetails = () => {
     };
   }, []);
 
-  const userSignOut = () => {
-    signOut(getAuth)
-      .then(() => {
-        console.log("sign out successful");
-      })
-      .catch((error) => console.log(error));
+  const userSignOut = async () => {
+    try {
+      const resp = await signOut(getAuth);
+      console.log("sign out successful");
+    } catch (e) {
+      console.log(error);
+    }
   };
 
   return (
