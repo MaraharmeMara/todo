@@ -1,18 +1,21 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import Modal from "../components/Modal";
 import SignUp from "./SignUp";
 import { auth } from "../firebase";
+import { EmailContext } from "../context/LoginContext";
 
 const SignIn = ({ changeModal }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showModal, setShowModal] = useState(false);
+  const { setChangeUser } = useContext(EmailContext);
 
   const signIn = (e) => {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredenial) => {
+        setChangeUser(email);
         console.log(userCredenial);
       })
       .catch((error) => {
