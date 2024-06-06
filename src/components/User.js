@@ -8,6 +8,7 @@ import { EmailContext } from "../context/LoginContext";
 
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase";
+import firebase from "../firebase";
 
 function User() {
   const [showModal, setShowModal] = useState(false);
@@ -15,6 +16,10 @@ function User() {
   const [current, setCurrent] = useState(0);
   const { changeUser } = useContext(EmailContext);
   const { setChangeUser } = useContext(EmailContext);
+
+  const handleLogout = () => {
+    return firebase.auth().signOut;
+  };
 
   function changeModal() {
     if (current === 0) {
@@ -25,7 +30,7 @@ function User() {
   }
 
   function logOut() {
-    setChangeUser("");
+    return { handleLogout }, setChangeUser("");
   }
 
   return (
