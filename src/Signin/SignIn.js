@@ -22,6 +22,7 @@ const SignIn = ({ changeModal }) => {
         console.log(error);
       });
   };
+
   return (
     <div className="sign-in">
       <form onSubmit={signIn}>

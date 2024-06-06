@@ -6,11 +6,15 @@ import SignIn from "../Signin/SignIn";
 import SignUp from "../Signin/SignUp";
 import { EmailContext } from "../context/LoginContext";
 
+import { signOut } from "firebase/auth";
+import { auth } from "../firebase";
+
 function User() {
   const [showModal, setShowModal] = useState(false);
   const [signIn, setSignIn] = useState(false);
   const [current, setCurrent] = useState(0);
   const { changeUser } = useContext(EmailContext);
+  const { setChangeUser } = useContext(EmailContext);
 
   function changeModal() {
     if (current === 0) {
@@ -18,6 +22,10 @@ function User() {
     } else {
       setCurrent(0);
     }
+  }
+
+  function logOut() {
+    setChangeUser("");
   }
 
   return (
@@ -33,7 +41,7 @@ function User() {
           </button>
         )}
         {changeUser !== "" && <span>Email: {changeUser}</span>}
-        <button className="log" onClick={() => setShowModal(true)}>
+        <button className="log" onClick={logOut}>
           Log Out
         </button>
 
